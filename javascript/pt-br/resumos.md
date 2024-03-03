@@ -106,4 +106,12 @@ addEventListener('Scroll', function() {
 
 # OBJETOS
 
-...
+Conjunto de variáveis e funções, que são chamadas de propriedades e métodos.
+```
+var receita = {
+  nome: 'bolo',
+  ovos: 2,
+  farinha: 'Uma xicara',
+  possuiAcucar: true,
+}
+```

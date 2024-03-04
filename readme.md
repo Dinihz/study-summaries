@@ -8,3 +8,5 @@ __avisos__
 
 2. Por ser apenas resumos podem conter erros. Caso encontre algum entre em contato comigo :)
 
+3. Proximo resumo: __typescript__
+

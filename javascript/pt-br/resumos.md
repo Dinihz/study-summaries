@@ -115,3 +115,29 @@ var receita = {
   possuiAcucar: true,
 }
 ```
+
+# Arrays
+Servem para guardarmos diferentes valores em uma única variável.
+```
+const marcas = ['Motorola', 'Samsung', 'Iphone'];
+```
+
+# FOR LOOP
+Cria algo repetido até que uma condição seja atingida.
+```
+for(let i = 0; i < 10; i++) {
+  console.log(`Número ${i}`);
+}
+console.log(i); // i is not defined
+```
+* BREAK
+ele para o loop
+```
+let marcas = ['Motorola', 'Samsung', 'Iphone', 'Xiaomi'];
+for (let i = 0; i < marcas.length; i++) {
+  console.log(marcas[i]);
+  if(marcas[i] === 'Iphone') {
+    break;
+  }
+}
+```

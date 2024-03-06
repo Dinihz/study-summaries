@@ -141,3 +141,16 @@ for (let i = 0; i < marcas.length; i++) {
   }
 }
 ```
+
+# DOM
+O DOM é um modelo de documento carregado pelo navegador. Este documento é representado através de uma árvore de nós, onde cada um destes nós representa uma parte do documento (por ex. um elemento, texto ou comentário).
+
+* WINDOW E DOCUMENT
+São os objetos principais do DOM, boa parte da manipulação é feita através dos seus métodos e propriedades.
+
+* NODE
+Toda tag html é representada pelo objeto Element e por isso herda os seus métodos e propriedades.
+
+```
+const titulo = document.querySelector('button');
+```

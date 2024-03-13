@@ -154,3 +154,10 @@ Toda tag html é representada pelo objeto Element e por isso herda os seus méto
 ```
 const titulo = document.querySelector('button');
 ```
+
+# ID
+getElementById seleciona e retorna elementos do DOM
+
+```
+const menu = document.getElementById('menu');
+```

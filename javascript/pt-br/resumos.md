@@ -158,6 +158,61 @@ const titulo = document.querySelector('button');
 # ID
 getElementById seleciona e retorna elementos do DOM
 
+* __elemento__ é uma referência a um objeto Element, ou null se um elemento com o ID especificado não estiver contido neste documento.
+
+* __id__ é uma string que diferência maiúsculas e minúsculas representando o ID único do elemento sendo procurado.
+
 ```
 const menu = document.getElementById('menu');
 ```
+
+-> Document.getElementsByClassName()
+Retorna um vetor de objetos com todos os elementos filhos que possuem o nome da classe dada
+
+```
+const elements = document.getElementsByClassName(names);
+```
+
+ -> Document.getElementsByName()
+Retorna uma coleção de elementos NodeList com um dado nome no documento.
+
+```
+const elements = document.getElementsByName(names);
+```
+
+-> querySelector
+Retorna o primeiro elemento dentro do documento
+
+-> querySelectorAll
+Retorna uma lista de elementos presentes no documento que coincidam com o grupo de seletores especificado.
+
+```
+const menu = document.querySelector('#menu');
+const listas = document.querySelectorAll('ul');
+const fotos = document.querySelectorAll('.listas img');
+```
+
+# forEACH
+O forEach executa o callback fornecido uma vez para cada elemento da ordem com um valor atribuido.
+```
+* Parâmetros do forEach
+O primeiro parâmetro é o callback, ou seja, a função que será ativada a cada item.
+
+imgs.forEach(function(valorAtual, index, array){
+  console.log(item); // o item atual no loop
+  console.log(index); // o número do index
+  console.log(array); // a Array completa
+});
+```
+
+# Arrow functions
+Uma expressão arrow function possui uma sintaxe mais curta quando comparada a uma expressão de function
+
+```
+const imgs = document.querySelectorAll('img');
+
+imgs.forEach((item) => {
+  console.log(item);
+});
+```
+

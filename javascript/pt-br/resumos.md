@@ -192,7 +192,7 @@ const listas = document.querySelectorAll('ul');
 const fotos = document.querySelectorAll('.listas img');
 ```
 
-# forEACH
+# forEach
 O forEach executa o callback fornecido uma vez para cada elemento da ordem com um valor atribuido.
 ```
 * Parâmetros do forEach
@@ -214,5 +214,44 @@ const imgs = document.querySelectorAll('img');
 imgs.forEach((item) => {
   console.log(item);
 });
+```
+# classList
+O Element.classList é uma propriedade somente leitura que retorna uma coleção ativa dos atributos de classe do elemento.
+
+```
+const summay = document.querySelector('.summay');
+
+summay.className; // string
+summay.classList; // lista de classes
+summay.classList.add('ativo');
+summay.classList.add('ativo', 'mobile'); // duas classes
+summay.classList.remove('ativo');
+summay.classList.toggle('ativo'); // adiciona/remove a classe
+summay.classList.contains('ativo'); // true ou false
+summay.classList.replace('ativo', 'inativo');
+```
+
+# attributes
+A propriedade Element. attributes retorna uma coleção de todos os atributos registrados para um nó especificado.
+
+```
+const grid = document.querySelector('.grid');
+
+grid.attributes; // retorna todos os atributos
+grid.attributes[0]; // retorna o primeiro atributo
+```
+
+* getAttribute E setAttribute
+Métodos que retornam ou definem de acordo com o atributo selecionado.
+
+```
+const copy = document.querySelector('copy');
+
+copy.getAttribute('src'); // valor do src
+copy.setAttribute('alt', 'Texto Alternativo'); // muda o alt
+copy.hasAttribute('id'); // true / false
+copy.removeAttribute('alt'); // remove o alt
+
+copy.hasAttributes(); // true / false se tem algum atributo
 ```
 

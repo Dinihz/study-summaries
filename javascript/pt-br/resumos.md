@@ -2,6 +2,7 @@ Resumos de 2023;
 
 # Variáveis:
 * Responsáveis por guardar dados na memória
+  
 --> var: pode ser redeclarada e modificada (podendo vazam do bloco e criando um valor undefined)
 
 --> let: ela permite a modificação do valor da variavel, usada em For Loop

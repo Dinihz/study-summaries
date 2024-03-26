@@ -256,3 +256,16 @@ copy.removeAttribute('alt'); // remove o alt
 copy.hasAttributes(); // true / false se tem algum atributo
 ```
 
+
+# window
+O objeto window implementa a interface Window.
+
+```
+window.innerWidth; // width do janela
+window.innerHeight; // height do janela
+window.pageYOffset; // distância total do scroll vertical
+window.pageXOffset; // distância total do scroll horizontal
+```
+[mais](https://developer.mozilla.org/pt-BR/docs/Web/API/Window)
+
+

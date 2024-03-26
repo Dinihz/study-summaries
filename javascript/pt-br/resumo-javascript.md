@@ -268,4 +268,44 @@ window.pageXOffset; // distância total do scroll horizontal
 ```
 [mais](https://developer.mozilla.org/pt-BR/docs/Web/API/Window)
 
+# Event
+A interface de event representa qualquer evento de DOM. Ele contém propriedades comuns e métodos para qualquer evento.
+
+Construtor:
+Event()
+Cria um objeto Event.
+
+Metodos:
+Esta interface não herda nenhum método.
+
+Propriedades do event:
+```
+function executarCallback(event) {
+  const currentTarget = event.currentTarget; // this
+  const target = event.target; // onde o clique ocorreu
+  const type = event.type; // tipo de evento
+  const path = event.path;
+  console.log(currentTarget, target, type, path);
+}
+```
+# addEventListener()
+addEventListener() registra uma única espera de evento em um único alvo.
+
+```
+h1.addEventListener('click');
+h1.addEventListener('mouseenter');
+window.addEventListener('scroll');
+window.addEventListener('resize');
+window.addEventListener('keydown');
+```
+
+Por que usar addEventListener?
+
+addEventListener é a maneira de registrar uma espera de evento como especificada no W3C DOM. Seus benefícios são os seguintes:
+
+    * Permite mais de um manipulador por evento. Isso é particularmente útil em bibliotecas DHTML ou em extensões Mozilla que precisam trabalhar bem mesmo com outras bibliotecas/extensões sendo usadas.
+    
+    * Te dá um pente-fino do estágio em que a espera de evento é ativada (captura ou borbulha).
+
+    * Funciona em qualquer elemento DOM, não só para elementos HTML.
 

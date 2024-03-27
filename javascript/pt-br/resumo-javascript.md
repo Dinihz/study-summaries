@@ -309,3 +309,38 @@ addEventListener é a maneira de registrar uma espera de evento como especificad
 
     * Funciona em qualquer elemento DOM, não só para elementos HTML.
 
+# INNERTEXT E INNERHTML
+
+```
+const header = document.querySelector('.header');
+
+header.innerText; // texto, sem as tags
+header.innerHTML; // html todo
+```
+
+# Node
+é uma interface da qual diversos tipos do DOM herdam, e que permite que esses tipos sejam tratados de forma similar.
+
+--> Metodos
+
+* Node.appendChild
+* Node.cloneNode
+* Node.insertBefore
+* Node.removeChild
+* Node.replaceChild
+* [mais](https://developer.mozilla.org/pt-BR/docs/Web/API/Node)
+
+```
+const home = document.querySelector(".home");
+const market = document.querySelector(".market");
+const h1 = home.querySelector("h1");
+
+market.appendChild(home); // move home para o final do market
+market.cloneNode(market) // duplica o market
+market.insertBefore(home, h1); // insere o home antes de h1
+market.removeChild(h1); // remove h1 do home
+market.replaceChild(home, h1); // substitui h1 por home
+```
+
+* Diferença de node e element:
+O element representa o html, já o node pode ser qualquer coisa do codigo  até um espaço em uma linha.

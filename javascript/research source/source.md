@@ -1,10 +1,7 @@
-
 # research source
 
-* [w3schools](https://www.w3schools.com/js/default.asp)
+- [w3schools](https://www.w3schools.com/js/default.asp)
 
-* [developer.mozilla](https://developer.mozilla.org/)
+- [developer.mozilla](https://developer.mozilla.org/)
 
-* 
-
-
+-

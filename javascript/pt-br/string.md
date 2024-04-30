@@ -7,6 +7,7 @@ Chamar o construtor diretamente pode criar funções dinamicamente, mas sofre de
 - ex:
 
 ```
+function Dom() {
   this.seletor = 'li';
   const element = document.querySelector(this.seletor);
   this.active = function() {

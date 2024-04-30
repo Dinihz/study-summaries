@@ -1,25 +1,50 @@
-# Function() construtor
+# String
 
-Chamar o construtor diretamente pode criar funções dinamicamente, mas sofre de segurança e problemas de desempenho semelhantes (mas muito menos significativos) como eval(). No entanto, ao contrário eval (que pode ter acesso ao escopo local), o Function o construtor cria funções que são executadas apenas no escopo global.
+- STR.LENGTH:
 
-- new (cria um novo objeto)
-
-- ex:
+--> total de caracteres da string
 
 ```
-function Dom() {
-  this.seletor = 'li';
-  const element = document.querySelector(this.seletor);
-  this.active = function() {
-    element.classList.add('active');
-  };
-}
+const oi = 'oii';
+frase.length; // 3
+```
 
-const list = new Dom();
-list.seletor = 'ul';
-list.ativo();
+- STR.CHARAT(N):
+
+--> Retorna o caracter de acordo com o index de (n)
+
+```
+const linguagem = 'JavaScript';
+
+linguagem.charAt(0); // J
+linguagem.charAt(2); // v
+linguagem.charAt(linguagem.length - 1); // t
+```
+
+- STR.CONCAT(STR2, STR3, ...):
+
+--> Procura pela string exata dentro de outra string. A procura é case sensitive
+
+```
+const fruta = 'Maça';
+const listaFrutas = 'Melancia, Maça, ';
+
+listaFrutas.includes(fruta); // true
+fruta.includes(listaFrutas); // false
 
 ```
 
-# Prototype
-A propriedade prototype é um objeto adicionado a uma função quando a mesma é criada.
+- STR.ENDSWITH(SEARCH) E STR.STARTSWITH(SEARCH):
+
+```
+const fruta = 'Banana';
+
+fruta.endsWith('nana'); // true
+fruta.startsWith('Ba'); // true
+fruta.startsWith('na'); // false
+
+```
+
+- STR.SLICE(START, END:
+
+--> Corta a string de acordo com os valores de start e end

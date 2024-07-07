@@ -7,7 +7,7 @@
 2. Por serem apenas resumos, podem conter erros. Caso encontre algum, entre em contato comigo.
 
 # Vou adicionar e estudar futuramente:
-
+- Linux
 - TypeScript
 - C
 - C#

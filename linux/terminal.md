@@ -18,3 +18,8 @@ sudo apt clean --> limpa os repositorios.
 sudo apt autoremove --> limpar pacoted que nao estao sendo usados.
 
 ----------------------------------------------------------------------------------
+ls --> lista o conteudo
+cd --> entrar ou sair de diretorios
+parametros: -l ou --long
+
+

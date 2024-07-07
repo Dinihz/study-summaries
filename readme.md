@@ -8,6 +8,7 @@
 
 # Vou adicionar e estudar futuramente:
 - Linux
+- Python
 - TypeScript
 - C
 - C#

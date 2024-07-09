@@ -62,5 +62,23 @@ Para remover um arquivo/pasta use o "rm" --> rm Linux/Terminal/text.txt ou rmdir
 
 Deletar diversas pastas uma dentro da outra: rm -rf
 
+----------------------------------------------------------------------------------
 
+* : usado para fazer referencia a um conjunto de caracteres. Ex: ls /etc/*.conf (vai mostrar todos os arquivos com .conf.\
+
+  ls /etc/*x* --> vai chamar os arquivos que tem x no meio.
+
+* : ? --> faz refencia a apenas uma letra.
+  
+  ex: ls /etc/?as* (primeira letra qualquer depois as obrigatorio e depois um resto qualquer.
+  
+  ex: ls /etc/???a* (3 primeiras letras qualquer depois "a" obrigatorio e depois um resto qualquer.
+
+*  Colchetes []: faixa de caracteres
+  
+  ex: ls /etc/p[a-i]* (o bash vai procurar um arquivo com a inicial p e com uma segunda letra que pode variar de a ate i e depois o resto. (se fosse [a,i] seria apenas as duas letras.
+
+*  Chaves []: busca um padrao
+
+  ex: ls /etc/?{am,ul} --> vai puxar apenas esses dois padroes.
 

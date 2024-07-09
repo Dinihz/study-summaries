@@ -82,3 +82,15 @@ Deletar diversas pastas uma dentro da outra: rm -rf
 
   ex: ls /etc/?{am,ul} --> vai puxar apenas esses dois padroes.
 
+----------------------------------------------------------------------------------
+
+less --> paginador de arquivo na tela : usamos as setinhas, teclas home, end etc para ver o arquivo.
+
+man --> formata a pagina e manda para o less 
+
+mv --> renomea o arquivo e tambem move os arquivos.
+
+cp --> copia o arquivo e manda para aonde voce pedir, porem, ele nao apaga/move apenas copia.
+
+
+

@@ -20,6 +20,14 @@ sudo apt autoremove --> limpar pacoted que nao estao sendo usados.
 ----------------------------------------------------------------------------------
 ls --> lista o conteudo
 
+ls -l --> lista o conteudo em forma de lista
+
+ls -a --> lista o conteudo oculto e normal
+
+ls -r --> inverte a ordem o -l
+
+ls |more --> quando a lista ser muito grande 
+
 cd --> entrar ou sair de diretorios
 
 parametros: -l ou --long

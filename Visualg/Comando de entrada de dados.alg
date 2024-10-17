@@ -1,4 +1,4 @@
-algoritmo "Comanddo de entrada de dados"
+algoritmo "Comando de entrada de dados"
 // Função :
 // Autor :
 // Data : 16/10/2024

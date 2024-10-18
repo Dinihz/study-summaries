@@ -13,3 +13,6 @@
 - C
 - C#
 - Java
+
+
+Depois de finalizar alguns estudos, quero fazer um projeto com este repositório, mostrando todos os meus estudos ao longo dos anos, com resumos de cada linguagem e projeto.

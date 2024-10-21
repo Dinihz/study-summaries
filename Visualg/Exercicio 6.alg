@@ -13,10 +13,13 @@ inicio
       
                   Escolha numero
       
+      
+      
+
                   Caso 1
                   
                   valor <- "O valor é de R$200.000"
-                  
+                  //Também pode ser usado a Vírgula 2,4,6,8,10 ai deixa o codigo menor.
                   Caso 2
 
                   valor <- "O valor é de R$220.000"

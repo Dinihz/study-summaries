@@ -1,19 +1,19 @@
-Vale a pena estudar logica de programação por portugol? Vou expor a minha opnição no assunto de quem está começando e teve a pratica disto.
+## Vale a pena estudar lógica de programação com Portugol?
 
-Não compensa, pois temos a possibilidade de estudar logica com a propria limguagem que escolhermos.
+Vou expor minha opinião sobre o uso do Portugol para aprender lógica de programação, especialmente para quem está começando e teve experiência com ele.
 
-Por exemplo, com Python, Java, JavaScript podemos praticar logica com eles. Com a pratica de exercicos, youtube e projetos você aprende.
+Em geral, não vale a pena focar no Portugol, pois temos a possibilidade de estudar lógica de programação diretamente com a linguagem que escolhermos.
 
-Apenas aconselho estudar Portugol em tres padroes:
+Por exemplo, com Python, Java ou JavaScript, é possível praticar lógica e desenvolver habilidades ao mesmo tempo. Com exercícios, vídeos no YouTube e pequenos projetos, você consegue aprender e aprimorar sua lógica de programação.
 
-* Caso voce começou com a estudar por uma limguagem e não conseguiu enteder nada, seja por ser em inglês ou outra motivo.
+No entanto, recomendo o estudo de Portugol em três situações específicas:
 
-* Faculdade, se você está começando agora e seu professor está passando logica com portugol. Neste caso eu recomendo, pois você vai ter auxilio de um profissinal que vai te acompanhar e trazer exercicos na pratica.
+* __Dificuldade com a primeira linguagem:__ Caso você tenha começado a estudar programação por outra linguagem e esteja com dificuldades de compreensão, seja pelo inglês ou por outras razões.
 
-* Caso você nunca teve contado com computadores e está iniciando agora.
+* __Faculdade:__ Se você está no início da faculdade e seu professor utiliza Portugol para ensinar lógica, vale a pena segui-lo, pois você terá o auxílio de um profissional para acompanhar o aprendizado com exercícios práticos.
 
-* Caso você nunca teve contado com computadores e está iniciando agora.
+* __Iniciantes totais:__ Para quem nunca teve contato com computadores e está começando agora, o Portugol pode ser uma introdução simples e visualmente amigável para entender a lógica.
 
+Comandos básicos em Portugol
 
-
-Agora sobre o básico de Portugol que aprendi nestes ultimos tempos:
+Agora, compartilho os comandos básicos do Portugol que aprendi recentemente:

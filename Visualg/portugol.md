@@ -16,4 +16,4 @@ No entanto, recomendo o estudo de Portugol em três situações específicas:
 
 Comandos básicos em Portugol
 
-Agora, compartilho os comandos básicos do Portugol que aprendi recentemente:
+Agora, compartilho os comandos básicos do Portugol que aprendi:

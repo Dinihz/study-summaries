@@ -49,3 +49,43 @@ Arrays armazenam uma coleção de elementos como strings, booleanos, números, e
 - `array.join()`: junta todos os valores da array em uma string.
 - `array.slice()`: retorna uma parte da array, começando pelo índice inicial até o final especificado.
 
+
+# Interação
+
+- `array.forEach()`: executa uma função para cada elemento da array.
+
+- `Arrow Functions`: Funções de forma simples, que podem ser usadas em lugar de funções normais.
+
+´´´´
+const li = document.querySelectorAll('li');
+
+li.forEach(i => i.classList.add('ativa'));
+
+li.forEach(function(item) {
+  item.classList.add('ativa');
+});
+´´´
+
+- `array.map()`: retorna um novo array com os valores da array original, transformando-os em um novo tipo.
+
+# Uso do Método `reduce` em JavaScript
+
+ - O método `reduce` permite acumular valores de um array em uma única saída. Ele recebe uma função de acumulação e um valor inicial.
+
+
+```javascript
+array.reduce((acumulador, valorAtual) => {
+  // Lógica de acumulação
+  return novoAcumulador;
+}, valorInicial);
+
+Ex:
+
+```
+
+const numeros = [1, 2, 3, 4, 5];
+const soma = numeros.reduce((acumulador, valorAtual) => acumulador + valorAtual, 0);
+
+console.log(soma); // Saída: 15
+´´´´
+

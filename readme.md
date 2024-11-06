@@ -1,18 +1,19 @@
-# Meus resumos de estudos
+# Resumos de Estudos
 
-**avisos:**
+Este repositório contém resumos dos meus estudos em diversas áreas da tecnologia. Todos os resumos são provenientes das minhas anotações pessoais e estão em constante atualização.
 
-1. Todos esses resumos são retirados do meu caderno. Vou adicionando as matérias aos poucos aqui.
+## Futuras adições de estudo
 
-2. Por serem apenas resumos, podem conter erros. Caso encontre algum, entre em contato comigo.
+Planejo aprofundar meus estudos e adicionar resumos sobre os seguintes tópicos:
 
-# Vou adicionar e estudar futuramente:
 - Linux
 - Python
 - TypeScript
-- C
+- React
+- Neovim
 - C#
-- Java
+- SQL
 
+## Próximos passos
 
-Depois de finalizar alguns estudos, quero fazer um projeto com este repositório, mostrando todos os meus estudos ao longo dos anos, com resumos de cada linguagem e projeto.
+Após concluir alguns estudos, pretendo transformar este repositório em um projeto mais estruturado, apresentando um histórico de todos os meus aprendizados ao longo dos anos, com resumos detalhados de cada linguagem e projeto.

@@ -15,7 +15,7 @@ Resumos de 2023;
 - use '', "", ou ``
   ex:
 
-```
+```javascript
 var text = `Hoje vou estudar ${soma} horas`;
 let text02 = 'Hello'
 const text03 = "hi"
@@ -23,7 +23,7 @@ const text03 = "hi"
 
 # Operadores e Números
 
-```
+```javascript
 const soma = 5 + 5; // 10
 const subtracao = 6 - 5; // 1
 const multiplicacao = 50 * 2; // 100
@@ -35,10 +35,6 @@ entre outros
 NAN = não é um numero (ocorre quando acontece uma operreção com valores que não são numeros)
 ex :
 
-```
-let valor = 100 / "Car"
-```
-
 # Boolean
 
 - true
@@ -46,17 +42,17 @@ let valor = 100 / "Car"
 
 # If e Else
 
-- if especifica um bloco de código a ser executado, se uma condição especificada for verdadeira
+- if especifica um bloco de código a ser executado, se uma condição especificada for verdadeira.
 
-- else especifica um bloco de código a ser executado, se a mesma condição for falsa
+- else especifica um bloco de código a ser executado, se a mesma condição for falsa.
 
-- else if especifica uma nova condição ao testar, se a primeira condição for falsa
+- else if especifica uma nova condição ao testar, se a primeira condição for falsa.
 
-- switch especifica vários blocos de código alternativos a executar
+- switch especifica vários blocos de código alternativos a executar.
 
 ex:
 
-```
+```javascript
 if (hour < 12) {
   greeting = "Bom dia";
 } else {
@@ -64,67 +60,66 @@ if (hour < 12) {
 }
 ```
 
-true = verdadeiro
-
-false = falso
-
-Operador lógico de negação = !
+## Operador lógico de negação = !
 ele nega uma operação booleana
 
-```
+```javascript
 if(!true) // false
 if(!false) // true
 ```
 
-OPERADORES DE COMPARAÇÃO = > ou <
+## OPERADORES DE COMPARAÇÃO = > ou <
 
-OPERADORES DE COMPARAÇÃO == e ===
-==: faz uma comparação não tão estrita
-===: faz uma comparação estrita
+## OPERADORES DE COMPARAÇÃO == e ===
+* ==: faz uma comparação não tão estrita
 
-OPERADORES LÓGICOS && (e)
-famoso ^ da tabela verdade
+* ===: faz uma comparação estrita
 
-```
+## OPERADORES LÓGICOS && (e) (famoso ^ da tabela verdade)
+
+```javascript
 true && true; // true
 true && false; // false
 false && true; // false
 false && false; // false
 ```
 
-OPERADORES LÓGICOS || (ou)
+## OPERADORES LÓGICOS || (ou)
 
-```
+```javascript
 true || true; // true
 true || false; // true
 false || true; // true
 false || false; // false
 ```
 
-famoso v da tabela verdade
+_famoso v da tabela verdade_
 
 # FUNÇÕES
 
-Bloco de código que pode ser executado e reutilizado.
+* Bloco de código que pode ser executado e reutilizado.
 
-```
+```javascript
 function imc(peso, altura) {
   const imc = peso / (altura ** 2);
   return imc;
 }
 ```
 
-Callback : argumentos que podem ser funções
+### Callback : argumentos que podem ser funções
+* Uma callback é uma função passada como argumento para outra função, que será executada posteriormente, geralmente em resposta a um evento ou conclusão de uma operação.
 
-addEventListener('Scroll', function() {
-console.log('Scroll');
+```javascript
+addEventListener('scroll', function() {
+    console.log('Scroll realizado!');
 });
+```
 
 # OBJETOS
 
-Conjunto de variáveis e funções, que são chamadas de propriedades e métodos.
+* Conjunto de variáveis e funções, que são chamadas de propriedades e métodos.
 
-```
+```javascript
 var receita = {
   nome: 'bolo',
   ovos: 2,
@@ -135,27 +130,30 @@ var receita = {
 
 # Arrays
 
-Servem para guardarmos diferentes valores em uma única variável.
+* Servem para guardarmos diferentes valores em uma única variável.
 
-```
+```javascript
 const marcas = ['Motorola', 'Samsung', 'Iphone'];
 ```
 
 # FOR LOOP
 
-Cria algo repetido até que uma condição seja atingida.
+* O for é uma estrutura de repetição que executa um bloco de código várias vezes, enquanto uma condição for verdadeira.
 
-```
-for(let i = 0; i < 10; i++) {
-  console.log(`Número ${i}`);
+```javascript
+for (let i = 0; i < 10; i++) {
+    console.log(`Número ${i}`);
 }
-console.log(i); // i is not defined
+
+// A variável `i` foi declarada com `let`, logo só existe dentro do escopo do loop
+console.log(i); // Erro: `i` não está definida
+
 ```
 
 - BREAK
-  ele para o loop
+* O comando break é usado para interromper a execução do loop antes de atingir a condição final.
 
-```
+```javascript
 let marcas = ['Motorola', 'Samsung', 'Iphone', 'Xiaomi'];
 for (let i = 0; i < marcas.length; i++) {
   console.log(marcas[i]);

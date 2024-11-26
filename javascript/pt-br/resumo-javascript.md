@@ -21,6 +21,48 @@ let text02 = 'Hello'
 const text03 = "hi"
 ```
 
+  * string.length: usado para achar o total de caracteres da string.
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.length); // 11
+    ```
+
+  * string.charat(N): Retorna o caracter de acordo com o index de (N)
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.charAt(0)); // H
+    ```
+
+  * string.concat(texto): concatena o texto com o string.
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.concat(' and goodbye')); // Hello World and goodbye
+    ```
+
+  * string.endsWith(texto): verifica se o string termina com o texto.
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.endsWith('World')); // true
+    ```
+
+  * string.startsWith(texto): verifica se o string começa com o texto.
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.startsWith('Hello')); // true
+    ```
+
+  *string.slice(inicio, fim): retorna uma parte do string.
+
+    ```javascript
+    const text = 'Hello World';
+    console.log(text.slice(0, 5)); // Hello
+    ```
+
 # Operadores e Números
 
 ```javascript

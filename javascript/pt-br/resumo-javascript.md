@@ -167,17 +167,17 @@ for (let i = 0; i < marcas.length; i++) {
 
 O DOM é um modelo de documento carregado pelo navegador. Este documento é representado através de uma árvore de nós, onde cada um destes nós representa uma parte do documento (por ex. um elemento, texto ou comentário).
 
-- WINDOW E DOCUMENT
-  São os objetos principais do DOM, boa parte da manipulação é feita através dos seus métodos e propriedades.
+  - WINDOW E DOCUMENT
+    São os objetos principais do DOM, boa parte da manipulação é feita através dos seus métodos e propriedades.
 
-- NODE
-  Toda tag html é representada pelo objeto Element e por isso herda os seus métodos e propriedades.
+  - NODE
+    Toda tag html é representada pelo objeto Element e por isso herda os seus métodos e propriedades.
 
-```
+```javascript
 const titulo = document.querySelector('button');
 ```
 
-# ID
+## ID
 
 getElementById seleciona e retorna elementos do DOM
 
@@ -185,31 +185,31 @@ getElementById seleciona e retorna elementos do DOM
 
 - **id** é uma string que diferência maiúsculas e minúsculas representando o ID único do elemento sendo procurado.
 
-```
+```javascript
 const menu = document.getElementById('menu');
 ```
 
--> Document.getElementsByClassName()
-Retorna um vetor de objetos com todos os elementos filhos que possuem o nome da classe dada
+  - Document.getElementsByClassName()
+    Retorna um vetor de objetos com todos os elementos filhos que possuem o nome da classe dada
 
-```
+```javascript
 const elements = document.getElementsByClassName(names);
 ```
 
--> Document.getElementsByName()
-Retorna uma coleção de elementos NodeList com um dado nome no documento.
+  - Document.getElementsByName()
+    Retorna uma coleção de elementos NodeList com um dado nome no documento.
 
-```
+```javascript
 const elements = document.getElementsByName(names);
 ```
 
--> querySelector
-Retorna o primeiro elemento dentro do documento
+  - querySelector
+    Retorna o primeiro elemento dentro do documento
 
--> querySelectorAll
-Retorna uma lista de elementos presentes no documento que coincidam com o grupo de seletores especificado.
+  - querySelectorAll
+    Retorna uma lista de elementos presentes no documento que coincidam com o grupo de seletores especificado.
 
-```
+```javascript
 const menu = document.querySelector('#menu');
 const listas = document.querySelectorAll('ul');
 const fotos = document.querySelectorAll('.listas img');
@@ -219,10 +219,10 @@ const fotos = document.querySelectorAll('.listas img');
 
 O forEach executa o callback fornecido uma vez para cada elemento da ordem com um valor atribuido.
 
-```
+
 * Parâmetros do forEach
 O primeiro parâmetro é o callback, ou seja, a função que será ativada a cada item.
-
+```javascript
 imgs.forEach(function(valorAtual, index, array){
   console.log(item); // o item atual no loop
   console.log(index); // o número do index
@@ -230,11 +230,11 @@ imgs.forEach(function(valorAtual, index, array){
 });
 ```
 
-# Arrow functions
+## Arrow functions
 
 Uma expressão arrow function possui uma sintaxe mais curta quando comparada a uma expressão de function
 
-```
+```javascript
 const imgs = document.querySelectorAll('img');
 
 imgs.forEach((item) => {
@@ -242,11 +242,11 @@ imgs.forEach((item) => {
 });
 ```
 
-# classList
+### classList
 
 O Element.classList é uma propriedade somente leitura que retorna uma coleção ativa dos atributos de classe do elemento.
 
-```
+```javascript
 const summay = document.querySelector('.summay');
 
 summay.className; // string
@@ -259,21 +259,21 @@ summay.classList.contains('ativo'); // true ou false
 summay.classList.replace('ativo', 'inativo');
 ```
 
-# attributes
+### attributes
 
 A propriedade Element. attributes retorna uma coleção de todos os atributos registrados para um nó especificado.
 
-```
+```javascript
 const grid = document.querySelector('.grid');
 
 grid.attributes; // retorna todos os atributos
 grid.attributes[0]; // retorna o primeiro atributo
 ```
 
-- getAttribute E setAttribute
-  Métodos que retornam ou definem de acordo com o atributo selecionado.
+  - getAttribute E setAttribute
+    Métodos que retornam ou definem de acordo com o atributo selecionado.
 
-```
+```javascript
 const copy = document.querySelector('copy');
 
 copy.getAttribute('src'); // valor do src
@@ -284,11 +284,11 @@ copy.removeAttribute('alt'); // remove o alt
 copy.hasAttributes(); // true / false se tem algum atributo
 ```
 
-# window
+### window
 
 O objeto window implementa a interface Window.
 
-```
+```javascript
 window.innerWidth; // width do janela
 window.innerHeight; // height do janela
 window.pageYOffset; // distância total do scroll vertical
@@ -302,15 +302,14 @@ window.pageXOffset; // distância total do scroll horizontal
 A interface de event representa qualquer evento de DOM. Ele contém propriedades comuns e métodos para qualquer evento.
 
 Construtor:
-Event()
-Cria um objeto Event.
+Event() (Cria um objeto Event).
 
 Metodos:
 Esta interface não herda nenhum método.
 
 Propriedades do event:
 
-```
+```javascript
 function executarCallback(event) {
   const currentTarget = event.currentTarget; // this
   const target = event.target; // onde o clique ocorreu
@@ -320,11 +319,11 @@ function executarCallback(event) {
 }
 ```
 
-# addEventListener()
+### addEventListener()
 
 addEventListener() registra uma única espera de evento em um único alvo.
 
-```
+```javascript
 h1.addEventListener('click');
 h1.addEventListener('mouseenter');
 window.addEventListener('scroll');
@@ -332,28 +331,18 @@ window.addEventListener('resize');
 window.addEventListener('keydown');
 ```
 
-Por que usar addEventListener?
+### INNERTEXT E INNERHTML
 
-addEventListener é a maneira de registrar uma espera de evento como especificada no W3C DOM. Seus benefícios são os seguintes:
-
-    * Permite mais de um manipulador por evento. Isso é particularmente útil em bibliotecas DHTML ou em extensões Mozilla que precisam trabalhar bem mesmo com outras bibliotecas/extensões sendo usadas.
-
-    * Te dá um pente-fino do estágio em que a espera de evento é ativada (captura ou borbulha).
-
-    * Funciona em qualquer elemento DOM, não só para elementos HTML.
-
-# INNERTEXT E INNERHTML
-
-```
+```javascript
 const header = document.querySelector('.header');
 
 header.innerText; // texto, sem as tags
 header.innerHTML; // html todo
 ```
 
-# Node
+### Node
 
-é uma interface da qual diversos tipos do DOM herdam, e que permite que esses tipos sejam tratados de forma similar.
+* é uma interface da qual diversos tipos do DOM herdam, e que permite que esses tipos sejam tratados de forma similar.
 
 --> Metodos
 
@@ -364,7 +353,7 @@ header.innerHTML; // html todo
 - Node.replaceChild
 - [mais](https://developer.mozilla.org/pt-BR/docs/Web/API/Node)
 
-```
+```javascript
 const home = document.querySelector(".home");
 const market = document.querySelector(".market");
 const h1 = home.querySelector("h1");

@@ -60,3 +60,33 @@ function callback() {
   }
 }
 ```
+
+# New Date
+
+ - O construtor Date é usado para criar objetos Date, que representam uma data e hora especificas.
+  ```javascript
+  const agora = new Date();
+  agora;
+  // Semana Mês Dia Ano HH:MM:SS GMT
+  agora.getDate() // Dia
+  agora.getDay() // Dia da Semana ex: 5 = Fri
+  agora.getMonth() // Número dia mês
+  agora.getFullYear() // Ano
+  agora.getHours() // Hora
+  agora.getMinutes() // Minutos
+  agora.getTime() // ms desde 1970
+  agora.getUTCHours() - 3 // Brasília
+  ```
+
+# GetTime()
+
+ - O método getTime() retorna o tempo atual em milissegundos desde o Unix Epoch (1 de janeiro 1970 00:00:00 UTC).
+
+  ```javascript
+  const agora = new Date();
+  agora.getTime(); //
+
+  
+  const diasPassados = agora.getTime() / (24 * 60 * 60 * 1000);
+  ```
+

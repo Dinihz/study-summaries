@@ -103,3 +103,18 @@ Object.defineProperty(obj, 'name', {
 Object.getOwnPropertyDescriptors(array); // lista os metodos e propriedades da array.
 ```
 
+* Object.freeze(obj): Congela um objeto, impedindo que ele seja modificado.
+
+* Object.seal(obj): Congela um objeto, impedindo que ele seja modificado e adicionado propriedades.
+
+* Object.preventExtensions(obj): Impede que novas propriedades sejam adicionadas ao objeto.
+
+* {}.propertyIsEnumerable(prop): Retorna true se a propriedade é enumerável.
+
+* {}.constructor: Retorna a função construtora do objeto.
+
+* {}.isprototypeof(obj): Retorna true se o objeto é um objeto protótipo.
+
+* {}.tostring(): Retorna a representação textual do objeto.
+
+

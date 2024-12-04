@@ -90,3 +90,26 @@ function callback() {
   const diasPassados = agora.getTime() / (24 * 60 * 60 * 1000);
   ```
 
+## FORMS
+
+- Como pegar os valores do formulário
+
+```HTML
+<form name="contato" id="contato">
+  <label for="nome">Name</label>
+  <input type="text" name="nome" id="nome">
+  <label for="email">Email</label>
+  <input type="email" name="email" id="email">
+  <label for="mensagem">Message</label>
+  <textarea name="mensagem" id="mensagem"></textarea>
+</form>
+```
+
+```javascript
+document.forms; // lista com os formulários
+document.forms.contato; // form com nome contato
+document.forms.contato.elements; // elementos
+document.forms[0].elements[0].value; // valor do primeiro
+```
+
+

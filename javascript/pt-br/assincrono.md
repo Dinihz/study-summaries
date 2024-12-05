@@ -151,4 +151,6 @@ promessa.then(resolucao => {
   console.log('Acabou'); // 'Acabou'
 });
 ```
+### JSON
 
+* JavaScript Object Notation (JSON) é um formato de organização de dados, compostos por um conjunto de chave e valor. As aspas duplas são obrigatórias, tanto na chave quanto no valor quando este for uma string.

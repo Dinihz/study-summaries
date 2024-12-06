@@ -202,4 +202,10 @@ const enderecoOBJ = {
 const enderecoJSON = JSON.stringify(enderecoOBJ);
 ```
 
+# API
 
+- Uma API (Application Programming Interface) em JavaScript é um conjunto de métodos, funções e regras que permitem que diferentes aplicações ou partes de um software se comuniquem entre si. Em JavaScript, APIs são usadas tanto no lado do cliente (navegador) quanto no lado do servidor (Node.js), permitindo a interação com recursos do sistema, servidores externos ou serviços.
+
+# HTTP
+
+- HTTP (HyperText Transfer Protocol) é o protocolo usado para comunicação entre clientes e servidores na web. Ele define como as informações são solicitadas e transferidas entre navegadores, servidores e outros sistemas conectados.

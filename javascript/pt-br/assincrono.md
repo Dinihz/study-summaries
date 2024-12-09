@@ -243,4 +243,53 @@ fetch(url, options)
 
 * PATCH: Utilizado para atualizar posts, usuários e etc.
 
+# Async/Await
 
+* Async/Await é uma sintaxe de programação que permite escrever código assíncrono em uma maneira mais fácil e legível.
+
+* Async indica que a função possui partes assíncronas e que você pretende esperar a resolução da mesma antes de continuar. 
+
+* Await indica a promise que devemos esperar.
+
+```javascript
+function iniciarFetch() {
+  fetch('./dados.json')
+  .then(dadosResponse => dadosResponse.json())
+  .then(dadosJSON => {
+    document.body.innerText = dadosJSON.titulo;
+  })
+}
+iniciarFetch();
+
+//Veja que com o async/await, não precisamos usar a função then e fica com a sintaxe mais fácil de ler.
+async function iniciarAsync() {
+  const dadosResponse = await fetch('./dados.json');
+  const dadosJSON = await dadosResponse.json();
+  document.body.innerText = dadosJSON.titulo;
+}
+iniciarAsync();
+```
+
+### Try/Catch
+
+* Try/Catch é uma estrutura de controle de fluxo que permite que você execute um bloco de código e, em caso de erro, execute outro bloco de código.
+
+* Também usamos para lidarmos com erros nas promises.
+
+```javascript
+async function puxarDados() {
+  try {
+    const dadosResponse = await fetch('./dados.json');
+    const dadosJSON = await dadosResponse.json();
+    document.body.innerText = dadosJSON.titulo;
+  }
+  catch(erro) {
+    console.log(erro);
+  }
+}
+puxarDados();
+```
+
+### Promice 
+
+* O resultado da expressão à frente de await tem que ser uma promise. E o retorno do await será sempre o resultado desta promise.

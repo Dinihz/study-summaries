@@ -209,3 +209,38 @@ const enderecoJSON = JSON.stringify(enderecoOBJ);
 # HTTP
 
 - HTTP (HyperText Transfer Protocol) é o protocolo usado para comunicação entre clientes e servidores na web. Ele define como as informações são solicitadas e transferidas entre navegadores, servidores e outros sistemas conectados.
+
+* Uma requisição HTTP é feita através de uma URL. O método padrão é o GET, mas existem outros como POST, UPDATE, DELETE, HEADER.
+
+```javascript
+const url = 'https://jsonplaceholder.typicode.com/posts/';
+const options = {
+  method: 'POST',
+  headers: {
+    "Content-Type": "application/json; charset=utf-8",
+  },
+  body: '"aula": "JavaScript"',
+}
+
+fetch(url, options)
+.then(response => response.json())
+.then(json => {
+  console.log(json);
+});
+```
+
+## method
+
+* GET: Puxa informação, utilizado para pegar posts, usuários e etc.
+
+* POST: Utilizado para criar posts, usuários e etc.
+
+* PUT: Utilizado para atualizar posts, usuários e etc.
+
+* DELETE: Utilizado para excluir posts, usuários e etc.
+
+* HEAD: Utilizado para obter informações sobre o servidor.
+
+* PATCH: Utilizado para atualizar posts, usuários e etc.
+
+

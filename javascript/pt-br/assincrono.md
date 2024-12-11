@@ -294,5 +294,19 @@ puxarDados();
 
 * O resultado da expressão à frente de await tem que ser uma promise. E o retorno do await será sempre o resultado desta promise.
 
-# Historu API
+# History API
+
+* É possível acessarmos o histórico de acesso do browser em uma sessão específica através do window.history
+
+### Fetch History
+
+* Ao puxarmos dados via fetch api, o url da página continua o mesmo. Ao combinar fetch com a history api conseguimos simular uma navegação real entre páginas,
+
+```javascript
+async function fetchPage(url) {
+  const pageReponse = await fetch(url);
+  const pageText = await pageReponse.text();
+  window.history.pushState(null, null, url);
+}
+```
 

@@ -296,3 +296,17 @@ puxarDados();
 
 # History API
 
+* É possível acessarmos o histórico de acesso do browser em uma sessão específica através do window.history
+
+### Fetch History
+
+* Ao puxarmos dados via fetch api, o url da página continua o mesmo. Ao combinar fetch com a history api conseguimos simular uma navegação real entre páginas,
+
+```javascript
+async function fetchPage(url) {
+  const pageReponse = await fetch(url);
+  const pageText = await pageReponse.text();
+  window.history.pushState(null, null, url);
+}
+```
+

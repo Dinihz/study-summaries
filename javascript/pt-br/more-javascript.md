@@ -22,6 +22,36 @@ Button.prototype.element = function() {
 const blueButton = new Button('Buy', 'Red');
 ```
 
+## Function Declaration
+
+```javascript
+function somar(a,b) {
+  return a + b;
+}
+
+somar(6,4);
+```
+
+## Function Expression
+
+```javascript
+const somar = function(a,b) {
+  return a + b;
+}
+
+somar(6,4);
+```
+
+## Arrow Function
+
+```javascript
+const somar = (a, b) => a + b;
+somar(6,4);
+
+const quadrado = a => a * a;
+quadrado(4);
+```
+
 ## Class
 
 * É uma forma de implementar funções construtoras.
@@ -128,4 +158,24 @@ class Moto extends Veiculo {
 
 const honda = new Moto(2);
 honda.acelerar();
+```
+
+## Factory Function
+
+* Funções que retornam um objeto sem a necessidade de usar a palavra new.
+
+```javascript
+function createButton(text) {
+  function element() {
+    const buttonElement = document.createElement('button');
+    buttonElement.innerText = text;
+    return buttonElement;
+  }
+  return {
+    element: element,
+    text: text,
+  }
+}
+
+const comprarBtn = createButton('Comprar');
 ```

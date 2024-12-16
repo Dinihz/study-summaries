@@ -294,5 +294,5 @@ puxarDados();
 
 * O resultado da expressão à frente de await tem que ser uma promise. E o retorno do await será sempre o resultado desta promise.
 
-# Historu API
+# History API
 

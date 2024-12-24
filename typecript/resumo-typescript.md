@@ -78,3 +78,71 @@ function isNumber(value: string | number) {
   }
 }
 ```
+
+# Objects
+
+- Usa-se uma sintaxe parecida com a criação de objetos literales, mas com um par de chaves.
+
+```typescript
+function preencherDados(dados: {
+  nome: string;
+  sobrenome: string;
+  maiorDeIdade: boolean;
+}) {
+  document.body.innerHTML += `
+  <div>
+    <h2>${dados.nome}</h2>
+    <p>${dados.sobrenome}</p>
+    <p>Maior de idade: ${dados.maiorDeIdade ? "Sim" : "Não"}</p>
+  </div>
+  `;
+}
+
+preencherDados({
+  nome: "Diniz",
+  sobrenome: "Dinihz",
+  maiorDeIdade: true,
+});
+
+preencherDados({
+  nome: "Lucas",
+  sobrenome: "Souza",
+  maiorDeIdade: false,
+});
+```
+
+# Types
+
+- Cria um atalho (alias) para um tipo.
+
+```typescript
+type NumberOrString = number | string;
+
+let TotalA: NumberOrString = 10;
+TotalA = "200";
+
+type Categoria = "A" | "B" | "C";
+
+function isCategoria(categoria: Categoria) {
+  if (categoria === "A") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+isCategoria("A");
+```
+
+# Interfaces
+
+- Usado para definir objetos com tipos e atributos.
+
+```typescript
+interface Pessoa {
+  nome: string;
+  sobrenome: string;
+  idade: number;
+  maiorDeIdade: boolean;
+}
+```

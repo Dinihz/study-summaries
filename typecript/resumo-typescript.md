@@ -146,3 +146,74 @@ interface Pessoa {
   maiorDeIdade: boolean;
 }
 ```
+
+## Arrays
+
+```typescript
+const numbers = [10, 40, 50, 5, 100];
+
+function maior(data: number[]) {
+  data.filter((n) => n >= 10);
+}
+```
+
+### Filtrar Valores
+
+```typescript
+const valores = [10, 30, "Home", 60, "name"];
+
+function isNumbers(data: (number | string)[]) {
+  return data.filter((item) => typeof item === "number");
+}
+```
+
+```typescript
+const otherNumbers = [10, 30, 250, 60, 360];
+
+function more(data: Array<number>) {
+  return data.filter((n) => n > 10);
+}
+```
+
+## Any
+
+- O any indica que o dado pode conter qualquer tipo de dado do TypeScript.
+
+- O any faz sentido no caso da função json() onde qualquer tipo de dado pode ser retornado, dependendo da API que acessarmos.
+
+```typescript
+async function fetchJSON(url: string) {
+  const response = await fetch(url);
+  const data = await response.json();
+}
+
+fetchJSON("https://www.openstreetmap.org/export#map=7/-19.684/-42.836");
+```
+
+
+## Null e Undefined
+
+- Null é um tipo primitivo que representa a ausência de valor. É comum em funções do DOM que fazem uma busca, retornarem null quando não são bem sucedidas.
+
+```typescript
+const button05 = document.querySelector("button");
+const configs = localStorage.getItem("config");
+
+if (button !== null) {
+  button.click();
+}
+if (button) {
+  button.click();
+}
+if (button) button.click();
+button?.click();
+```
+
+## Undefined
+
+- variáveis/propriedades que foram instanciadas, porém, os seus valores ainda não foram definidos.
+
+```typescript
+let total05;
+console.log(total); // undefined
+```

@@ -190,7 +190,6 @@ async function fetchJSON(url: string) {
 fetchJSON("https://www.openstreetmap.org/export#map=7/-19.684/-42.836");
 ```
 
-
 ## Null e Undefined
 
 - Null é um tipo primitivo que representa a ausência de valor. É comum em funções do DOM que fazem uma busca, retornarem null quando não são bem sucedidas.
@@ -216,4 +215,59 @@ button?.click();
 ```typescript
 let total05;
 console.log(total); // undefined
+```
+
+# Class
+
+- Quando definimos uma classe, o TypeScript gera a interface do objeto produzido pela mesma.
+
+```typescript
+class Produto {
+  nome: string;
+  preco: number;
+  constructor(nome: string, preco: number) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+  precoReal() {
+    return `R$ ${this.preco}`;
+  }
+}
+const livro = new Produto("Prime", 65);
+```
+
+# instanceof
+
+- O instanceof é um operador do JavaScript que verifica se um objeto é uma instância (foi construído ou herda) de uma função construtora (class); no entanto, não funciona para interfaces definidas sem uma classe construtora.
+
+```typescript
+class Livro {
+  autor: string;
+  constructor(autor: string) {
+    this.autor = autor;
+  }
+}
+
+class Jogo {
+  jogadores: number;
+  constructor(jogadores: number) {
+    this.jogadores = jogadores;
+  }
+}
+
+function buscarProduto(busca: string) {
+  if (busca === "O Hobbit") {
+    return new Livro("J. R. R. Tolkien");
+  }
+  if (busca === "Dark Souls") {
+    return new Jogo(1);
+  }
+  return null;
+}
+
+const produto = buscarProduto("O Hobbit");
+
+if (produto instanceof Livro) {
+  produto.autor;
+}
 ```

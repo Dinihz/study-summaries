@@ -271,3 +271,41 @@ if (produto instanceof Livro) {
   produto.autor;
 }
 ```
+
+## Interfaces do DOM
+
+### querySelector
+
+```typescript
+- O objeto retornado dependerá da string que passarmos no método.
+
+document.querySelector('video'); // HTMLVideoElement
+document.querySelector('img'); // HTMLImageElement
+
+const link1 = document.querySelector('a'); // HTMLAnchorElement
+const link2 = document.querySelector('#Diihz'); // Element
+
+link1?.href;
+link2?.href; // erro no ts
+```
+
+### querySelectorAll
+
+- O método querySelectorAll retorna todos os elementos que correspondem ao seletor CSS especificado, dentro de uma NodeList.
+
+```typescript
+const links = document.querySelectorAll('.link');
+console.log(links instanceof NodeList);
+
+links.forEach((link) => {
+  if (link instanceof HTMLAnchorElement) {
+    console.log(link.href);
+  } else {
+    console.log(typeof link);
+  }
+});
+
+const anchorLinks = Array.from(links).filter(
+  (link) => link instanceof HTMLAnchorElement,
+);
+```

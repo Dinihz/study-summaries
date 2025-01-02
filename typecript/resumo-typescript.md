@@ -294,7 +294,7 @@ link2?.href; // erro no ts
 - O método querySelectorAll retorna todos os elementos que correspondem ao seletor CSS especificado, dentro de uma NodeList.
 
 ```typescript
-const links = document.querySelectorAll('.link');
+const links = document.querySelectorAll(".link");
 console.log(links instanceof NodeList);
 
 links.forEach((link) => {
@@ -306,6 +306,44 @@ links.forEach((link) => {
 });
 
 const anchorLinks = Array.from(links).filter(
-  (link) => link instanceof HTMLAnchorElement,
+  (link) => link instanceof HTMLAnchorElement
 );
+```
+
+# Eventos
+
+- Passamos o evento como uma string e uma função de callback no método addEventListener.
+
+```typescript
+const button = document.querySelector("button");
+
+function handleClick(event: MouseEvent) {
+  console.log(event.pageX);
+}
+
+button?.addEventListener("click", handleClick);
+
+function handleScroll(event: Event) {
+  console.log(event);
+}
+
+window.addEventListener("scroll", handleScroll);
+```
+
+- Quando uma função for executada em diferentes tipos de eventos, usamos o parâmetro Event.
+
+```typescript
+function activeMenu(event: Event) {
+  console.log(event.type);
+  if (event instanceof MouseEvent) {
+    console.log(event.pageX);
+  }
+  if (event instanceof TouchEvent) {
+    console.log(event.touches[0].pageX);
+  }
+}
+
+document.documentElement.addEventListener("mousedown", activeMenu);
+document.documentElement.addEventListener("touchstart", activeMenu);
+document.documentElement.addEventListener("pointerdown", activeMenu);
 ```

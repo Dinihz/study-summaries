@@ -347,3 +347,48 @@ document.documentElement.addEventListener("mousedown", activeMenu);
 document.documentElement.addEventListener("touchstart", activeMenu);
 document.documentElement.addEventListener("pointerdown", activeMenu);
 ```
+
+# Generics
+
+- Forma de declararmos um parâmetro para na função.
+
+- Indicado por <>
+
+```typescript
+function notNull<Tipo>(arg: Tipo) {
+  if (arg !== null) return arg;
+  else return null;
+}
+
+notNull(200)?.toFixed();
+notNull("André")?.toLowerCase();
+```
+
+```typescript
+function tipoDado<T>(a: T): { dado: T; tipo: string } {
+  const resultado = {
+    dado: a,
+    tipo: typeof a,
+  };
+  console.log(resultado);
+  return resultado;
+}
+
+tipoDado(true);
+```
+
+## Entendendo Generics
+
+- Indicamos o tipo genérico que deve herda com o extends.
+
+```typescript
+function extractText<Tipo extends HTMLElement>(el: Tipo): string {
+  return el.innerText;
+}
+
+const link = document.querySelector("a");
+
+if (link) {
+  console.log(extractText(link));
+}
+```

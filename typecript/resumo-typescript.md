@@ -392,3 +392,61 @@ if (link) {
   console.log(extractText(link));
 }
 ```
+
+# Functions
+
+## Void
+
+- No TypeScript o retorno é definido como void.
+
+- Se a função tiper algum retorno, não terá mais o void como uma opção e sim o undefined.
+
+```typescript
+const btn = document.querySelector("button");
+
+// Erro, void não pode ser verificado
+if (btn && btn.click()) {
+}
+
+function isString(value: any) {
+  if (typeof value === "string") {
+    return true;
+  }
+}
+
+if (isString("test")) {
+  console.log("Is string");
+}
+```
+
+## Never
+
+- Utilizado em funções que geram um erro.
+
+```typescript
+function abort(mensage: string): never {
+  throw new Error(mensage);
+}
+
+abort("Is not possible");
+console.log("This code will never be executed");
+```
+
+## Overload
+
+- Overload em TypeScript permite que uma função tenha múltiplas assinaturas, possibilitando diferentes formas de chamar a mesma função com base nos tipos e números de argumentos.
+
+```typescript
+// Definindo as assinaturas da função
+function add(a: number, b: number): number;
+function add(a: string, b: string): string;
+
+// Implementação da função
+function add(a: any, b: any): any {
+  return a + b;
+}
+
+// Chamando a função com diferentes tipos de argumentos
+console.log(add(1, 2)); // Saída: 3
+console.log(add("Hello, ", "world!")); // Saída: Hello, world!
+```

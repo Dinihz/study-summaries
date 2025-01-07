@@ -450,3 +450,192 @@ function add(a: any, b: any): any {
 console.log(add(1, 2)); // Saída: 3
 console.log(add("Hello, ", "world!")); // Saída: Hello, world!
 ```
+
+# Type Guard
+
+- Type Guards são técnicas usadas em TypeScript para garantir a segurança de tipos (Type Safety) dentro de blocos condicionais. Eles ajudam o TypeScript a entender e estreitar (Type Narrowing) o tipo de uma variável com base em verificações de runtime, permitindo que o compilador saiba exatamente qual tipo está sendo manipulado em diferentes partes do código.
+
+* Type Guard com typeof: Verifica o tipo primitivo de uma variável.
+* Type Guard com instanceof: Verifica se um objeto é uma instância de uma classe específica.
+* Type Guard com in: Verifica se uma propriedade existe em um objeto.
+
+```typescript
+function isString(value: any): value is string {
+  return typeof value === "string";
+}
+
+function example(value: any) {
+  if (isString(value)) {
+    // Aqui o TypeScript sabe que 'value' é uma string
+    console.log(value.toUpperCase());
+  } else {
+    console.log("Not a string");
+  }
+}
+
+example("Hello");
+example(123);
+```
+
+```typescript
+class Dog {
+  bark() {
+    console.log("Woof!");
+  }
+}
+
+class Cat {
+  meow() {
+    console.log("Meow!");
+  }
+}
+
+function speak(animal: Dog | Cat) {
+  if (animal instanceof Dog) {
+    // Aqui o TypeScript sabe que 'animal' é um Dog
+    animal.bark();
+  } else {
+    // Aqui o TypeScript sabe que 'animal' é um Cat
+    animal.meow();
+  }
+}
+
+speak(new Dog());
+speak(new Cat());
+```
+
+```typescript
+interface Fish {
+  swim: () => void;
+}
+
+interface Bird {
+  fly: () => void;
+}
+
+function move(animal: Fish | Bird) {
+  if ("swim" in animal) {
+    // Aqui o TypeScript sabe que 'animal' é um Fish
+    animal.swim();
+  } else {
+    // Aqui o TypeScript sabe que 'animal' é um Bird
+    animal.fly();
+  }
+}
+
+const fish: Fish = { swim: () => console.log("Swimming") };
+const bird: Bird = { fly: () => console.log("Flying") };
+
+move(fish);
+move(bird);
+```
+
+## Unknown
+
+O tipo `unknown` em TypeScript representa um valor cujo tipo não é conhecido. Ele é mais seguro que o tipo `any`, pois força a verificação de tipo antes de usar o valor.
+
+```typescript
+let value: unknown;
+
+value = "Hello, world!";
+value = 42;
+value = true;
+
+// Não é possível acessar propriedades ou métodos diretamente em um valor do tipo unknown
+// console.log(value.toUpperCase()); // Erro: Object is of type 'unknown'
+
+// Usando Type Guards para verificar o tipo antes de usar
+if (typeof value === "string") {
+  // Aqui o TypeScript sabe que 'value' é uma string
+  console.log(value.toUpperCase()); // Saída: HELLO, WORLD!
+} else if (typeof value === "number") {
+  // Aqui o TypeScript sabe que 'value' é um número
+  console.log(value.toFixed(2)); // Saída: 42.00
+} else {
+  console.log("Tipo desconhecido");
+}
+```
+
+### Verificar Array
+
+- Usando o Type Guard `Array.isArray` para verificar se um valor é um array.
+
+```typescript
+const isArray = Array.isArray([1, 2, 3]);
+console.log(isArray); // true
+```
+
+- Usando o Type Guard `instanceof` para verificar se um valor é um array.
+
+```typescript
+const isArray = [1, 2, 3] instanceof Array;
+console.log(isArray); // true
+```
+
+## Type Predicate
+
+Type Predicates são usados para informar ao TypeScript sobre o tipo de uma variável após uma verificação de tipo. Eles são especialmente úteis em funções de guarda de tipo (Type Guards).
+
+```typescript
+function isString(value: any): value is string {
+  return typeof value === "string";
+}
+
+function example(value: any) {
+  if (isString(value)) {
+    // Aqui o TypeScript sabe que 'value' é uma string
+    console.log(value.toUpperCase());
+  } else {
+    console.log("Not a string");
+  }
+}
+
+example("Hello"); // Saída: HELLO
+example(123); // Saída: Not a string
+```
+
+### Verificação de Objetos
+
+- Usando `typeof` para verificar se um valor é um objeto.
+- Usando Type Predicate para verificar se um objeto possui uma estrutura específica.
+
+```typescript
+function isObject(value: any): boolean {
+  return typeof value === "object" && value !== null;
+}
+
+const value1 = { name: "Alice" };
+const value2 = "Hello";
+
+console.log(isObject(value1)); // Saída: true
+console.log(isObject(value2)); // Saída: false
+```
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+function isPerson(value: any): value is Person {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    typeof value.name === "string" &&
+    typeof value.age === "number"
+  );
+}
+
+const person = { name: "Alice", age: 30 };
+const notPerson = { name: "Bob" };
+
+if (isPerson(person)) {
+  // Aqui o TypeScript sabe que 'person' é do tipo 'Person'
+  console.log(person.name); // Saída: Alice
+  console.log(person.age); // Saída: 30
+}
+
+if (!isPerson(notPerson)) {
+  console.log("notPerson não é um Person"); // Saída: notPerson não é um Person
+}
+```

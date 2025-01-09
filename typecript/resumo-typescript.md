@@ -639,3 +639,26 @@ if (!isPerson(notPerson)) {
   console.log("notPerson não é um Person"); // Saída: notPerson não é um Person
 }
 ```
+
+# Type Assertion
+
+- Type Assertion é uma forma de informar ao TypeScript qual é o tipo de uma variável, mesmo que o TypeScript não consiga inferir esse tipo automaticamente. É como se você estivesse dizendo ao compilador: "Confie em mim, eu sei o que estou fazendo".
+
+## as
+
+- O operador as é usado para fazer uma asserção de tipo. Por exemplo, se você sabe que uma variável é de um tipo específico, você pode usar as para informar isso ao TypeScript.
+
+```typescript
+let someValue: unknown = "this is a string";
+let strLength: number = (someValue as string).length;
+```
+
+## ! (Non-Null Assertion)
+
+O operador ! é usado para informar ao TypeScript que uma expressão não é nula ou indefinida. Isso pode ser útil quando você tem certeza de que uma variável não será nula, mas o TypeScript não consegue inferir isso.
+
+```typescript
+let someValue: string | null = "this is a string";
+console.log(someValue!.length); // OK, someValue não é nulo
+```
+

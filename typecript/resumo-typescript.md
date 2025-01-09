@@ -662,3 +662,52 @@ let someValue: string | null = "this is a string";
 console.log(someValue!.length); // OK, someValue não é nulo
 ```
 
+# Destructuring
+
+- Uma meneira de extrair valores de arrays ou propriedades de objetos em variáveis distintas.
+
+- Em Arrays:
+
+```typescript
+const array = [1, 2, 3];
+const [first, second, third] = array;
+
+console.log(first); // Saída: 1
+console.log(second); // Saída: 2
+console.log(third); // Saída: 3
+```
+
+- Em Objetos:
+
+```typescript
+const person = { name: "Lucas", age: 19 };
+const { name, age } = person;
+
+console.log(name); // Saída: Lucas
+console.log(age); // Saída: 19
+```
+
+## Operador ...rest
+
+- Usado para coletar o restante dos elementos de uma array ou propriedade de um objeto que não foram desestruturados.
+
+- Em Arrays:
+
+```typescript
+const array = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = array;
+
+console.log(first); // Saída: 1
+console.log(second); //Saída: 2
+console.log(rest); //Saída: [3, 4, 5]
+```
+
+- Em Objetos:
+
+```typescript
+const person = { name: "Lucas", age: 19, city: "Ribeirão das Neves" };
+const { name, ...rest } = person;
+
+console.log(name); ///saída: Lucas
+console.log(rest); //Saída {age: 19, city: "Ribeirão das Neves"}
+```

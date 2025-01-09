@@ -711,3 +711,28 @@ const { name, ...rest } = person;
 console.log(name); ///saída: Lucas
 console.log(rest); //Saída {age: 19, city: "Ribeirão das Neves"}
 ```
+
+# Intersection Types
+
+- Usamos o & para combinar múliplos tipos em um único.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Employee {
+  employeeId: number;
+}
+
+type EmployeePerson = Person & Employee;
+
+const employee: EmployeePerson = {
+  name: "Lucas",
+  age: 19,
+  employeeId: 1234,
+};
+
+console.log(employee);
+```

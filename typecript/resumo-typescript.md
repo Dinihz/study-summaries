@@ -782,3 +782,63 @@ console.log(pegarValor(pessoa, "idade")); // Saída: 19
 // Tentando usar a função com uma chave inválida
 // console.log(pegarValor(pessoa, "altura")); // Erro: Argument of type '"altura"' is not assignable to parameter of type 'ChavesPessoa'.
 ```
+
+## Duck Typing
+
+-Duck Typing é um conceito de programação que se baseia na ideia de que a compatibilidade de tipos é determinada pelo comportamento (métodos e propriedades) de um objeto, e não pela sua herança ou pelo tipo explícito. Em outras palavras, se um objeto "parece um pato, nada como um pato e grasna como um pato", então ele é tratado como um pato.
+
+- Imagine que você tem uma função que aceita qualquer objeto que tenha um método `quack`:
+
+```typescript
+interface Quackable {
+  quack: () => void;
+}
+
+function makeItQuack(duck: Quackable) {
+  duck.quack();
+}
+
+const realDuck = {
+  quack: () => console.log("Quack!"),
+};
+
+const toyDuck = {
+  quack: () => console.log("Squeak!"),
+};
+
+makeItQuack(realDuck); // Saída: Quack!
+makeItQuack(toyDuck); // Saída: Squeak!
+```
+
+- Neste exemplo, tanto `realDuck` quanto `toyDuck` são aceitos pela função `makeItQuack` porque ambos têm um método `quack`.
+
+## Partial
+
+- `Partial` é um utilitário do TypeScript que transforma todas as propriedades de um tipo em opcionais.
+
+- É útil quando você está lidando com objetos que podem ser parcialmente preenchidos, como quando você está atualizando um objeto existente ou criando um objeto de forma incremental.
+
+-Vamos ver um exemplo. Imagine que você tem um tipo `Pessoa` e quer criar uma função que atualiza apenas algumas propriedades de uma pessoa:
+
+```typescript
+interface Pessoa {
+  nome: string;
+  idade: number;
+  cidade: string;
+}
+
+function atualizarPessoa(pessoa: Pessoa, atualizacoes: Partial<Pessoa>): Pessoa {
+  return { ...pessoa, ...atualizacoes };
+}
+
+const pessoa: Pessoa = {
+  nome: "Lucas",
+  idade: 19,
+  cidade: "Ribeirão das Neves",
+};
+
+const atualizacoes = { idade: 20 };
+
+const pessoaAtualizada = atualizarPessoa(pessoa, atualizacoes);
+console.log(pessoaAtualizada); // Saída: { nome: 'Lucas', idade: 20, cidade: 'Ribeirão das Neves' }
+```

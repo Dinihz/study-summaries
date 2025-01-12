@@ -842,3 +842,22 @@ const atualizacoes = { idade: 20 };
 const pessoaAtualizada = atualizarPessoa(pessoa, atualizacoes);
 console.log(pessoaAtualizada); // Saída: { nome: 'Lucas', idade: 20, cidade: 'Ribeirão das Neves' }
 ```
+
+## Record
+
+- `Record` é um utilitário do TypeScript que cria um tipo de objeto com um conjunto fixo de chaves e valores de um tipo específico. Ele é útil quando você quer garantir que um objeto tenha um conjunto específico de chaves, todas com o mesmo tipo de valor.
+
+- Imagine que você quer criar um objeto que mapeia nomes de cidades para suas populações:
+
+```typescript
+type PopulacaoCidades = Record<string, number>;
+
+const populacao: PopulacaoCidades = {
+  "São Paulo": 12300000,
+  "Rio de Janeiro": 6748000,
+  "Belo Horizonte": 2523000,
+};
+
+console.log(populacao["São Paulo"]); // Saída: 12300000
+console.log(populacao["Rio de Janeiro"]); // Saída: 6748000
+```

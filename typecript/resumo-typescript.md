@@ -736,3 +736,49 @@ const employee: EmployeePerson = {
 
 console.log(employee);
 ```
+
+# Tuples
+
+- Permite criar arrays com um número fixo de elementos, onde cada elemento podde ter um tipo diferente..
+
+- Vamos ver um exemplo mais prático. Imagine que você está criando um sistema para armazenar informações sobre livros. Cada livro tem um título (string), um número de páginas (number) e uma indicação se está disponível (boolean). Você pode usar uma tuple para representar essas informações:
+
+```typescript
+// Declarando uma tuple para armazenar informações de um livro
+let book: [string, number, boolean];
+
+// Inicializando a tuple
+book = ["O Hobbit", 310, true];
+
+// Acessando os elementos da tuple
+console.log(`Título: ${book[0]}`); // Saída: Título: O Hobbit
+console.log(`Páginas: ${book[1]}`); // Saída: Páginas: 310
+console.log(`Disponível: ${book[2]}`); // Saída: Disponível: true
+```
+
+# Keyof
+
+- ele pega um tipo de objeto e cria um tipo que é uma união de todas as chaves desse objeto.
+
+- O operador `keyof` é útil quando você quer garantir que uma variável ou uma função só aceite valores que correspondam às chaves de um objeto específico.
+
+- Imagine que você quer criar uma função que pega uma chave de um objeto `Pessoa` e retorna o valor correspondente. Você pode usar `keyof` para garantir que a função só aceite chaves válidas:
+
+```typescript
+function pegarValor(pessoa: Pessoa, chave: ChavesPessoa): string | number {
+  return pessoa[chave];
+}
+
+const pessoa: Pessoa = {
+  nome: "Lucas",
+  idade: 19,
+  cidade: "Ribeirão das Neves",
+};
+
+// Usando a função com chaves válidas
+console.log(pegarValor(pessoa, "nome")); // Saída: Lucas
+console.log(pegarValor(pessoa, "idade")); // Saída: 19
+
+// Tentando usar a função com uma chave inválida
+// console.log(pegarValor(pessoa, "altura")); // Erro: Argument of type '"altura"' is not assignable to parameter of type 'ChavesPessoa'.
+```

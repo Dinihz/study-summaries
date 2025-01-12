@@ -785,7 +785,7 @@ console.log(pegarValor(pessoa, "idade")); // Saída: 19
 
 ## Duck Typing
 
--Duck Typing é um conceito de programação que se baseia na ideia de que a compatibilidade de tipos é determinada pelo comportamento (métodos e propriedades) de um objeto, e não pela sua herança ou pelo tipo explícito. Em outras palavras, se um objeto "parece um pato, nada como um pato e grasna como um pato", então ele é tratado como um pato.
+- Duck Typing é um conceito de programação que se baseia na ideia de que a compatibilidade de tipos é determinada pelo comportamento (métodos e propriedades) de um objeto, e não pela sua herança ou pelo tipo explícito. Em outras palavras, se um objeto "parece um pato, nada como um pato e grasna como um pato", então ele é tratado como um pato.
 
 - Imagine que você tem uma função que aceita qualquer objeto que tenha um método `quack`:
 
@@ -818,7 +818,7 @@ makeItQuack(toyDuck); // Saída: Squeak!
 
 - É útil quando você está lidando com objetos que podem ser parcialmente preenchidos, como quando você está atualizando um objeto existente ou criando um objeto de forma incremental.
 
--Vamos ver um exemplo. Imagine que você tem um tipo `Pessoa` e quer criar uma função que atualiza apenas algumas propriedades de uma pessoa:
+- Vamos ver um exemplo. Imagine que você tem um tipo `Pessoa` e quer criar uma função que atualiza apenas algumas propriedades de uma pessoa:
 
 ```typescript
 interface Pessoa {
@@ -827,7 +827,10 @@ interface Pessoa {
   cidade: string;
 }
 
-function atualizarPessoa(pessoa: Pessoa, atualizacoes: Partial<Pessoa>): Pessoa {
+function atualizarPessoa(
+  pessoa: Pessoa,
+  atualizacoes: Partial<Pessoa>
+): Pessoa {
   return { ...pessoa, ...atualizacoes };
 }
 

@@ -737,6 +737,115 @@ const employee: EmployeePerson = {
 console.log(employee);
 ```
 
+# Modificadores
+
+- Public: é o padrão. Propriedades e métodos public podem ser acessados de qualquer lugar.
+
+```typescript
+class Person {
+  public name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  public greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const person = new Person("Alice");
+console.log(person.name); // Saída: Alice
+person.greet(); // Saída: Hello, my name is Alice
+```
+
+- Private: O modificador private torna as propriedades e métodos acessíveis apenas dentro da própria classe.
+
+```typescript
+class Person {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  public greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const person = new Person("Alice");
+// console.log(person.name); // Erro: 'name' é privado e só é acessível dentro da classe 'Person'
+person.greet(); // Saída: Hello, my name is Alice
+```
+
+- Protected: O modificador protected é semelhante ao private, mas permite que as propriedades e métodos sejam acessados dentro da classe e por classes derivadas (subclasses).
+
+```typescript
+class Person {
+  protected name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+class Employee extends Person {
+  private employeeId: number;
+
+  constructor(name: string, employeeId: number) {
+    super(name);
+    this.employeeId = employeeId;
+  }
+
+  public getDetails() {
+    console.log(`Name: ${this.name}, Employee ID: ${this.employeeId}`);
+  }
+}
+
+const employee = new Employee("Bob", 1234);
+employee.getDetails(); // Saída: Name: Bob, Employee ID: 1234
+```
+
+- Reandonly: O modificador readonly torna uma propriedade somente leitura. Ela pode ser inicializada no momento da declaração ou no construtor, mas não pode ser alterada depois.
+
+```typescript
+class Person {
+  public readonly name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const person = new Person("Alice");
+// person.name = "Bob"; // Erro: 'name' é somente leitura
+console.log(person.name); // Saída: Alice
+```
+
+- Static: O modificador static define propriedades e métodos que pertencem à classe em vez de instâncias da classe. Eles podem ser acessados diretamente na classe.
+
+```typescript
+class MathUtils {
+  public static PI: number = 3.14;
+
+  public static calculateCircumference(diameter: number): number {
+    return this.PI * diameter;
+  }
+}
+
+console.log(MathUtils.PI); // Saída: 3.14
+console.log(MathUtils.calculateCircumference(10)); // Saída: 31.4
+```
+
+- Resumo:
+
+* public: Acessível de qualquer lugar.
+* private: Acessível apenas dentro da própria classe.
+* protected: Acessível dentro da classe e por subclasses.
+* readonly: Propriedade somente leitura.
+* static: Pertence à classe em vez de instâncias da classe.
+
 # Tuples
 
 - Permite criar arrays com um número fixo de elementos, onde cada elemento podde ter um tipo diferente..

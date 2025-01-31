@@ -13,3 +13,4 @@
 - Mod1 + Shift + 1, 2, 3... : Manda o comando para o espaço de trabalho 1, 2, 3...
 - Mod1 + D: Abre o menu para pesquisar arquivos.
 - Mod1 + Shift + R: Reiniciar o i3wm.
+- Mod1 + Shift + Space: F11 no selecionado.

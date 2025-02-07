@@ -4,7 +4,7 @@
 
 ```jsx
 const App = () => {
-  return <div className="grid">Dinihz</div>;
+  return <div className='grid'>Dinihz</div>;
 };
 ```
 
@@ -25,7 +25,7 @@ const App = () => {
 - O método map() é usado para percorrer um array e criar algo novo com cada item. No React, ele é usado para gerar elementos JSX a partir de um array.
 
 ```jsx
-const frutas = ["Maçã", "Banana", "Laranja"];
+const frutas = ['Maçã', 'Banana', 'Laranja'];
 
 const ListaDeFrutas = () => {
   return (
@@ -64,6 +64,25 @@ const ListaDeProdutos = () => {
         </li>
       ))}
     </ul>
+  );
+};
+```
+
+## Propriedades
+
+- Passamos argumentos aos componentes como propriedades.
+
+```jsx
+const Titulo = (props) => {
+  return <h1>{props.texto}</h1>;
+};
+
+const App = () => {
+  return (
+    <section>
+      <Titulo texto='Teste de Titulo' />
+      <Titulo texto='Teste de Titulo2' />
+    </section>
   );
 };
 ```

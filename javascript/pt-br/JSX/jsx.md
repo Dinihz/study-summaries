@@ -166,3 +166,37 @@ const App = () => {
 ```
 
 - Neste exemplo, useContext(TemaContexto) acessa o valor do contexto TemaContexto, que é fornecido pelo TemaContexto.Provider.
+
+## Custom Hooks
+
+Custom Hooks são funções JavaScript que começam com "use" e podem chamar outros Hooks. Eles permitem que você compartilhe lógica de estado entre componentes sem duplicar código.
+
+### Exemplo de Custom Hook
+
+Vamos criar um Custom Hook que gerencia o estado de um contador:
+
+```jsx
+import React, { useState } from 'react';
+
+// Custom Hook para gerenciar o estado do contador
+const useContador = (inicial) => {
+  const [contador, setContador] = useState(inicial);
+  const incrementar = () => setContador(contador + 1);
+  const decrementar = () => setContador(contador - 1);
+  return { contador, incrementar, decrementar };
+};
+
+const Contador = () => {
+  const { contador, incrementar, decrementar } = useContador(0);
+
+  return (
+    <div>
+      <p>Contador: {contador}</p>
+      <button onClick={incrementar}>Incrementar</button>
+      <button onClick={decrementar}>Decrementar</button>
+    </div>
+  );
+};
+```
+
+- Neste exemplo, useContador é um Custom Hook que gerencia o estado do contador. Ele retorna o valor do contador e duas funções para incrementar e decrementar o contador. O componente Contador usa esse Custom Hook para gerenciar seu estado.

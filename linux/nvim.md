@@ -10,13 +10,13 @@
 - `b`: vai para **palavra anterior**
 - `$`: vai para **o final da linha**
 - `0`: vai para **o inicio da linha**
-- `f + caracter`: vai para **a próxima ocorrência da palavra**
-- `ctrl + u`: vai para **a última ocorrência da palavra**
-- `ctrl + d`: vai para **a próxima ocorrência da palavra anterior**
-- `ctrl + b`: vai para **a ocorrência da palavra anterior**
-- `ctrl + f`: vai para **a próxima ocorrência da palavra seguinte**
-- `g + g`: vai para **o início da linha**
-- `G`: vai para **o final da linha**
+- `f + caracter`: vai para **a próxima ocorrência do caracter**
+- `ctrl + u`: sobe **meia página**
+- `ctrl + d`: desce **meia página**
+- `ctrl + b`: sobe **uma página**
+- `ctrl + f`: desce **uma página**
+- `g + g`: vai para **o início do arquivo**
+- `G`: vai para **o final do arquivo**
 
 ### Exclusão:
 

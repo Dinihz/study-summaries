@@ -6,11 +6,11 @@ Este repositório contém resumos dos meus estudos em diversas áreas da tecnolo
 
 Planejo aprofundar meus estudos e adicionar resumos sobre os seguintes tópicos:
 
-- Linux
+- Linux ✅
 - Python
-- TypeScript
-- React
-- Neovim
+- TypeScript ✅
+- React ✅ 
+- Neovim ✅
 - C#
 - SQL
 

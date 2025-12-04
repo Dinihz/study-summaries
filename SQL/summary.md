@@ -1,107 +1,93 @@
-# Resumo de SQL
+# 📚 Resumo Completo de Estudos em SQL
 
-## Tipos de dados
-- INTEGER: dados numéricos inteiros.
-- TEXT: dados do tipo texto.
-
-## SELECT
-- SELECT: extrai dados de uma tabela e exibe os resultados.
-
-## Alias (AS)
-- Usado para dar nomes a colunas ou expressões.
-- Também pode ser usado para renomear uma coluna no resultado.
-
-## Funções
-- ROUND(valor, casas): arredonda números para o número de casas decimais indicado.
-
-## Concatenação de texto
-- Para concatenar texto usa-se o operador '||'.
-
-## Exemplos
-
-```sql
-SELECT * FROM PRODUCT;
-```
-
-```sql
-SELECT PRODUCT_ID,
-       DESCRIPTION,
-       PRICE,
-       ROUND(PRICE * 1.07, 2) AS TAXED_PRICE
-FROM PRODUCT;
-```
-
-```sql
-SELECT NAME,
-       CITY || ', ' || STATE AS LOCATION
-FROM CUSTOMER;
-```
-
-```sql
-SELECT NAME,
-       STREET_ADDRESS || ' ' || CITY || ', ' || STATE || ' ' || ZIP AS SHIP_ADDRESS
-FROM CUSTOMER;
-```
-# Filtragem e Operadores
-
-Este resumo cobre os principais comandos e operadores usados na cláusula **WHERE** para filtrar e manipular dados em consultas SQL.
+Este resumo consolida anotações sobre seleção de dados, funções básicas, operadores lógicos e tratamento de dados ausentes (NULL) e agrupamento.
 
 ---
 
-## 1. Operadores de Comparação e Lógicos
+## 1. Fundamentos e Seleção de Dados (`SELECT`)
 
-Esses operadores são fundamentais para criar condições na cláusula `WHERE`.
-
-| Operador | Significado | Uso | Observação |
-| :--- | :--- | :--- | :--- |
-| `<>` ou `!=` | **Diferente de** (Not Equal) | `WHERE coluna <> 'valor'` | Ambos são equivalentes. `<>` é o padrão ANSI SQL. |
-| `AND` | **E** (Conjunção) | `WHERE cond1 AND cond2` | Retorna TRUE apenas se **ambas** as condições forem TRUE. |
-| `OR` | **OU** (Disjunção) | `WHERE cond1 OR cond2` | Retorna TRUE se **pelo menos uma** das condições for TRUE. |
-| `%` (Módulo) | **Resto da Divisão** | `WHERE ID % 2 = 0` | Usado para verificar divisibilidade (ex: IDs pares) ou múltiplos. |
-
-**⚠️ Precedência (Prioridade):** O `AND` é avaliado antes do `OR`. Use **parênteses `()`** para forçar a ordem de avaliação, garantindo a lógica correta (ex: `WHERE A AND (B OR C)`).
-
----
-
-## 2. Filtragem de Listas e Valores
-
-| Comando | Significado | Exemplo | Explicação |
-| :--- | :--- | :--- | :--- |
-| `IN` | **Incluído na Lista** | `WHERE MONTH IN (3, 6, 9)` | Simplifica múltiplas condições `OR` contra uma mesma coluna. |
-| `NOT IN` | **Não Incluído na Lista** | `WHERE MONTH NOT IN (3, 6, 9)` | Retorna linhas cujo valor **não** está na lista. |
-| `DISTINCT` | **Valores Únicos** | `SELECT DISTINCT CITY FROM...` | Usado após o `SELECT` para remover linhas duplicadas no resultado. |
-
----
-
-## 3. Filtragem de Padrões de Texto (`LIKE`)
-
-O operador `LIKE` permite buscar *strings* que correspondam a um padrão, usando caracteres curinga.
-
-| Curinga | Significado | Exemplo | Resultado |
-| :--- | :--- | :--- | :--- |
-| **`%`** | Zero, um ou mais caracteres | `LIKE 'A%'` | Começa com 'A' (Ex: 'Ana', 'Abril'). |
-| **`_`** | Exatamente um caractere | `LIKE 'B_C%'` | Começa com 'B', tem qualquer letra no meio e continua com 'C'. |
-
-**Exemplo:** `SELECT REPORT_CODE FROM STATION_DATA WHERE report_code LIKE 'B_C%'`
-
----
-
-## 4. Tratamento de Valores Nulos
-
-O valor **NULL** (nulo) representa dados ausentes ou desconhecidos e é tratado de forma diferente dos valores comuns.
-
-| Comando | Significado | Exemplo | Explicação |
-| :--- | :--- | :--- | :--- |
-| `IS NULL` | **É Nulo** | `WHERE snow_depth IS NULL` | Verifica se o campo não possui valor. Não use `=` ou `!=`. |
-| `IS NOT NULL` | **Não É Nulo** | `WHERE precipitation IS NOT NULL` | Verifica se o campo possui algum valor. |
-| `COALESCE()` | **Substituir Nulo** | `COALESCE(precipitation, 0)` | Retorna o primeiro valor não nulo em uma lista. Útil para tratar `NULL`s como um valor padrão (ex: `0`) em cálculos ou filtros. |
-
-**Exemplo:** `SELECT * FROM STATION_DATA WHERE COALESCE(precipitation, 0) <= 0.5;`
-
----
-
-## 5. Funções de String
-
-| Função | Uso | Exemplo |
+| Conceito | Exemplo | Descrição |
 | :--- | :--- | :--- |
-| `LENGTH()` | Retorna o número de caracteres em uma string. | `WHERE LENGTH(report_code) != 6` |
+| **SELECT** | `SELECT * FROM PRODUCT;` | Extrai colunas e exibe os resultados da tabela. |
+| **Alias (`AS`)** | `ROUND(PRICE * 1.07, 2) AS TAXED_PRICE` | Usado para dar um nome temporário a uma coluna ou expressão no resultado. |
+| **Concatenação** | `CITY || ', ' || STATE` | Combina strings (texto) usando o operador `||`. |
+| **Tipos Básicos** | `INTEGER`, `TEXT` | Representam dados numéricos inteiros e dados do tipo texto, respectivamente. |
+| **Função `ROUND()`** | `ROUND(valor, casas)` | Arredonda números para o número de casas decimais indicado. |
+
+---
+
+## 2. Filtragem de Dados (`WHERE`) e Operadores
+
+A cláusula `WHERE` aplica condições a **registros individuais** antes que os dados sejam retornados ou agrupados.
+
+### 2.1. Operadores de Comparação e Lógicos
+
+| Operador | Significado | Exemplo | Prioridade |
+| :--- | :--- | :--- | :--- |
+| `<>` ou `!=` | **Diferente de** | `WHERE coluna <> 'valor'` | Média |
+| `AND` | **E** (Conjunção) | `WHERE cond1 AND cond2` | Alta (avalia primeiro) |
+| `OR` | **OU** (Disjunção) | `WHERE cond1 OR cond2` | Baixa (avalia depois) |
+| `%` | **Módulo** (Resto da Divisão) | `WHERE ID % 2 = 0` | Média |
+
+> 💡 **Dica de Prioridade:** Use **parênteses `()`** para forçar a ordem de avaliação se misturar `AND` e `OR`.
+
+### 2.2. Filtragem de Listas e Padrões
+
+| Comando | Tipo | Uso | Exemplo |
+| :--- | :--- | :--- | :--- |
+| **`IN` / `NOT IN`** | Lista | Simplifica múltiplas condições `OR`. | `WHERE MONTH IN (3, 6, 9)` |
+| **`LIKE`** | Padrão | Busca strings com caracteres curinga. | `WHERE report_code LIKE 'A%'` |
+| **Curinga `%`** | Padrão | Zero, um ou mais caracteres. | `'A%'` (começa com A) |
+| **Curinga `_`** | Padrão | Exatamente um caractere. | `'B_C%'` (qualquer caractere na segunda posição) |
+
+### 2.3. Tratamento de NULL e Funções de String
+
+| Comando | Finalidade | Exemplo |
+| :--- | :--- | :--- |
+| **`IS NULL`** | Verifica se o valor está ausente. | `WHERE snow_depth IS NULL` |
+| **`IS NOT NULL`**| Verifica se o valor está presente. | `WHERE precipitation IS NOT NULL` |
+| **`COALESCE()`** | Substitui um valor `NULL` por um valor padrão. | `COALESCE(precipitation, 0)` |
+| **`LENGTH()`** | Retorna o número de caracteres em uma string. | `WHERE LENGTH(report_code) != 6` |
+
+---
+
+## 3. Agregação, Agrupamento e Ordenação
+
+Essas cláusulas permitem resumir e organizar os dados.
+
+### 3.1. Funções de Agregação
+
+Operam sobre um conjunto de linhas para retornar um único valor de resumo.
+
+| Função | Finalidade | Regra de NULL |
+| :--- | :--- | :--- |
+| **`COUNT(*)`** | Total de linhas. | Inclui NULLs. |
+| **`SUM()`, `AVG()`, `MIN()`, `MAX()`** | Soma, Média, Mínimo, Máximo. | **Ignoram** valores NULL. |
+
+### 3.2. Agrupamento (`GROUP BY`)
+
+| Conceito | Exemplo | Descrição |
+| :--- | :--- | :--- |
+| **`GROUP BY`** | `GROUP BY year` | Agrupa linhas com valores idênticos para aplicar funções agregadas a cada grupo. |
+| **`GROUP BY 1, 2`** | `GROUP BY 1, 2` | Usa a posição da coluna no `SELECT` para agrupar, útil para expressões longas. |
+| **`DISTINCT`** | `SELECT DISTINCT CITY FROM...` | Usado para remover linhas duplicadas no resultado final da consulta. |
+
+### 3.3. Filtragem de Agregações (`HAVING`)
+
+| Cláusula | Função | Nível de Execução |
+| :--- | :--- | :--- |
+| **`WHERE`** | Filtra **registros individuais**. | **Antes** do `GROUP BY`. |
+| **`HAVING`** | Filtra **grupos** (valores agregados). | **Depois** do `GROUP BY`. |
+
+**Exemplo:**
+```sql
+ GROUP BY year HAVING SUM(precipitation) > 30
+```
+
+### 3.4. Ordenação (ORDER BY)
+
+| Comando | Finalidade | Direção |
+| :--- | :--- | :--- |
+| **`ORDER BY`** | Ordena a ordem final dos resultados. | É a última cláusula executada (depois do `SELECT`, `FROM`, `WHERE`, `GROUP BY`, e `HAVING`). |
+| **`ASC`** | Ordem Crescente (padrão). | Ex: `ORDER BY year ASC` (A-Z, 1-10) |
+| **`DESC`** | Ordem Decrescente. | Ex: `ORDER BY year DESC` (Z-A, 10-1) |

@@ -1,6 +1,6 @@
 # 📚 Resumo Completo de Estudos em SQL
 
-Este resumo consolida anotações sobre seleção de dados, funções básicas, operadores lógicos e tratamento de dados ausentes (NULL) e agrupamento.
+Este resumo consolida anotações sobre seleção de dados, funções básicas, operadores lógicos, tratamento de dados ausentes (NULL), agrupamento e associação de tabelas (JOIN).
 
 ---
 
@@ -81,7 +81,12 @@ Operam sobre um conjunto de linhas para retornar um único valor de resumo.
 
 **Exemplo:**
 ```sql
- GROUP BY year HAVING SUM(precipitation) > 30
+SELECT
+  year,
+  SUM(precipitation) AS total_precipitation
+FROM station_data
+GROUP BY year
+HAVING SUM(precipitation) > 30;
 ```
 
 ### 3.4. Ordenação (ORDER BY)
@@ -91,3 +96,49 @@ Operam sobre um conjunto de linhas para retornar um único valor de resumo.
 | **`ORDER BY`** | Ordena a ordem final dos resultados. | É a última cláusula executada (depois do `SELECT`, `FROM`, `WHERE`, `GROUP BY`, e `HAVING`). |
 | **`ASC`** | Ordem Crescente (padrão). | Ex: `ORDER BY year ASC` (A-Z, 1-10) |
 | **`DESC`** | Ordem Decrescente. | Ex: `ORDER BY year DESC` (Z-A, 10-1) |
+
+---
+
+## 4. Estruturas de Fluxo e Associações de Tabelas (`CASE` e `JOIN`)
+
+### 4.1. Expressão Condicional (`CASE`)
+
+O `CASE` permite aplicar lógica condicional (IF/THEN/ELSE) em consultas, mapeando condições para valores resultantes. É útil para reclassificar dados ou construir agregações condicionais.
+
+- Sintaxe:
+```sql
+CASE
+  WHEN condicao1 THEN valor1
+  WHEN condicao2 THEN valor2
+  ELSE valor_padrao
+END
+```
+
+- Contagem condicional (truque zero/null):
+```sql
+SELECT
+  COUNT(CASE WHEN amount > 1000 THEN 1 END) AS pedidos_grandes
+FROM orders;
+```
+
+### 4.2. Associação de Tabelas (`JOIN`)
+
+Combina colunas de duas ou mais tabelas com base em colunas relacionadas, definidas na cláusula `ON`.
+
+| Tipo de JOIN | Descrição | Registros sem correspondência |
+| :--- | :--- | :--- |
+| `INNER JOIN` | Apenas registros com correspondência em ambas as tabelas. | Excluídos. |
+| `LEFT JOIN` | Todos os registros da tabela à esquerda (após `FROM`). | Lado direito sem match vira `NULL`. |
+| `RIGHT JOIN` | Todos os da tabela à direita. | Lado esquerdo sem match vira `NULL`. |
+| `FULL OUTER JOIN` | Todos os registros de ambos os lados. | Sem match vira `NULL` em ambos. |
+
+Exemplo (`LEFT JOIN`):
+```sql
+SELECT
+  c.CUSTOMER_ID,
+  c.NAME,
+  o.ORDER_ID
+FROM CUSTOMER AS c
+LEFT JOIN CUSTOMER_ORDER AS o
+  ON c.CUSTOMER_ID = o.CUSTOMER_ID;
+```
